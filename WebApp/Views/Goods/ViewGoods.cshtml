@@ -1,0 +1,25 @@
+﻿@model GoodsModel
+@{
+    ViewData["Title"] = "View Item";
+}
+
+    <h2>@Model.GoodsName</h2>
+
+<div>
+    Name: @Model.GoodsName
+</div>
+<div>
+    Category: @Model.CategoryName
+</div>
+<div>
+    Description: @Model.Description
+</div>
+<div>
+    Price: @Model.Price
+</div>
+<div>
+    Location: @Model.Location
+</div>
+<div>
+    <a asp-controller="Categories" asp-action="Index" asp-route-id="@Model.Id">Back</a>
+</div>
