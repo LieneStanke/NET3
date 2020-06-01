@@ -68,11 +68,11 @@ namespace WebShop.Logic
             }
         }
 
-        public static void DeleteAll(int id)
+        public static void DeleteAll(int userId, int itemId)
         {
             using (var db = new DbContext())
             {
-                db.UserCart.RemoveRange(db.UserCart.Where(u => u.ItemId == id));
+                db.UserCart.RemoveRange(db.UserCart.Where(u => u.ItemId == itemId && u.UserId == userId));
                 db.SaveChanges();
             }
         }
