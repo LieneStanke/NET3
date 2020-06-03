@@ -3,8 +3,15 @@
     ViewData["Title"] = "MyCart";
 }
 
- <h2>My cart</h2>
+<h2>My cart</h2>
 <br />
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["message"]
+    </div>
+}
 
 @if (Model.Count == 0)
 {
@@ -20,18 +27,18 @@ else
             <th></th>
         </tr>
 
-        @foreach(var item in Model)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>@item.Name</td>
                 <td>@item.ItemCount</td>
                 <td>@item.Price</td>
-                <td><a asp-controller="Item" asp-action="DeleteItemFromCart" asp-route-id="@item.Id">Delete</a></td>
+                <td><a asp-controller="Account" asp-action="DeleteItemFromCart" asp-route-id="@item.Id">Delete</a></td>
             </tr>
         }
     </table>
 
     <br />
     <br />
-    <a asp-controller="Account" asp-action="Confirm">Confirm purchase</a>
+    <a asp-controller="Account" asp-action="Confirm" class="btn btn-success">Confirm order</a>
 }

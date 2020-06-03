@@ -94,12 +94,5 @@ namespace WebShop.Controllers
             UserCartManager.Create(HttpContext.Session.GetUserId(), id);
             return RedirectToAction("MyCart", "Account");
         }
-
-        [HttpGet]
-        public IActionResult DeleteItemFromCart(int id)
-        {
-            UserCartManager.DeleteItemFromCart(id);
-            return RedirectToAction("MyCart", "Account");
-        }
     }
 }
